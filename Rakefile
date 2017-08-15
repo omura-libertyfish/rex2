@@ -1,27 +1,24 @@
 require 'securerandom'
 require 'yaml'
+require 'fileutils'
 
 namespace :template do
-  desc "create"
+  desc "Create ExamMaster and OptionMaster markdown files"
   task :create do
     uuid =  SecureRandom.uuid
-    system("mkdir #{uuid.to_s}")
-    system("cp ./doc/* #{uuid.to_s}")
-  end
+    FileUtils.mkdir(uuid)
 
-  desc "check_yaml"
-  task :check_yaml do
-    Dir.glob('*/').each do |d|
-      file_name = "./#{d}answer.yml"
-      yaml_data = nil
-      File.open(file_name) do |file|
-        yaml_data = file.read
-      end
-
-      if yaml_data.empty?
-        puts "#{d}answer.ymlに記載がありません。"
-      end
+    @markdown_files.each do |markdown_file|
+      FileUtils.touch("#{uuid}/#{markdown_file}")
     end
+
+    puts "Markdown files are located in #{uuid}"
   end
 
+  task :load do
+    @markdown_files = YAML.load_file("./env.yml")['markdown']
+  end
+
+  # hook
+  task create: :load
 end
