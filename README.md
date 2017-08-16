@@ -31,7 +31,7 @@ UUIDで名前付けしたディレクトリに試験問題に必要なマーク�
 ---
 exam_type: silver
 work_in_progress: false
-answer: 
+answer:
   - 1
   - 4
 ```
@@ -59,3 +59,11 @@ option_masters_sentence_1.mdが解答であれば1です。また、配列であ
 #### option_masters_sentence_X.md
 
 試験問題の選択肢になります。このファイルは4つ作成されます。
+
+### テンプレートチェック
+
+テンプレートの設定ファイルが正しく設定されているかチェックします。
+
+```
+$ rake # or rake template:check
+```
