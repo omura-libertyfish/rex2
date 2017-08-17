@@ -1,0 +1,3 @@
+```
+attr_accessible :v
+```

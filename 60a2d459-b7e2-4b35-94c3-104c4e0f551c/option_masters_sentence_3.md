@@ -1,0 +1,1 @@
+`%w/apple banana orange/`
