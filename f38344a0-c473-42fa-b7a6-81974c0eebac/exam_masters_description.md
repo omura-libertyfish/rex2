@@ -4,7 +4,7 @@
 
 その他のクラス演算を以下にまとめます。
 
-| 演算 | 戻り値クラス |
+| 演算 | 戻り値クラス |
 | - | - | 
 | `Fixnum`と`Rational`の演算 | `Rational` |
 | `Float`と`Rational`の演算 | `Float` |
