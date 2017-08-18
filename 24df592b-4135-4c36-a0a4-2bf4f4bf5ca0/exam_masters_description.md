@@ -37,7 +37,6 @@ p CONST
 ```ruby
 hoge = "hoge".freeze
 hoge.upcase!
-
 p hoge
 
 # <実行結果>
