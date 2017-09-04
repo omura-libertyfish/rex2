@@ -28,4 +28,4 @@ ex3)
 v2 = v1 || (raise RuntimeError)
 ```
 
-そのほかの演算子の優先順位は[Rubyリファレンス](https://docs.ruby-lang.org/ja/latest/doc/spec=2foperator.html)を参照してください。
+そのほかの演算子の優先順位は[Rubyリファレンス](https://docs.ruby-lang.org/ja/2.1.0/doc/spec=2foperator.html)を参照してください。

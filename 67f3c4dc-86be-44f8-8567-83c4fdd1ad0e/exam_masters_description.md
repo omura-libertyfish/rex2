@@ -3,4 +3,4 @@
 `d == 3..d == 5`の部分は条件式に範囲式を記述しています。
 この式は、フリップフロップ回路のように一時的に真偽を保持するような挙動をとります。
 
-詳細は、[Rubyリファレンス](https://docs.ruby-lang.org/ja/2.0.0/doc/spec=2foperator.html#range)に詳しい説明がありますのでそちらを参照してください。
+詳細は、[Rubyリファレンス](https://docs.ruby-lang.org/ja/2.1.0/doc/spec=2foperator.html#range)に詳しい説明がありますのでそちらを参照してください。

@@ -7,4 +7,4 @@
 
 問題のコードで`scan(/[is|my]/)`が返す配列は`["i", "s", "m", "y"]`になります。
 
-正規表現の詳しい説明は[Rubyリファレンス](https://docs.ruby-lang.org/ja/latest/doc/spec=2fregexp.html)を参照してください。
+正規表現の詳しい説明は[Rubyリファレンス](https://docs.ruby-lang.org/ja/2.1.0/doc/spec=2fregexp.html)を参照してください。

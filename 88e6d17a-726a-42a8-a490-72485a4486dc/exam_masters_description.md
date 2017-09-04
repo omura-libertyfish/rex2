@@ -10,4 +10,4 @@
 
 以上に該当する部分文字列が表示されます。
 
-そのほか正規表現の詳しい説明は[Rubyリファレンス](https://docs.ruby-lang.org/ja/latest/doc/spec=2fregexp.html)を参照してください。
+そのほか正規表現の詳しい説明は[Rubyリファレンス](https://docs.ruby-lang.org/ja/2.1.0/doc/spec=2fregexp.html)を参照してください。
