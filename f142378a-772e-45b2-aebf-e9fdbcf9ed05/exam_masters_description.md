@@ -2,7 +2,7 @@
 フォーマットには、`"%d"`や`%s`などの指示子を用います。
 `String#%`を用いると、指示子が引数の値で置換されます。
 
-指示子の詳しい説明は[sprintf](https://docs.ruby-lang.org/ja/latest/method/Kernel/m/sprintf.html)を参照してください。
+指示子の詳しい説明は[Rubyリファレンス](https://docs.ruby-lang.org/ja/2.1.0/method/Kernel/m/sprintf.html)を参照してください。
 
 今回の問題では文字列`"Hello"`にフォーマットに必要な指示子が無いためそのまま出力されます。
 
