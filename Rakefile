@@ -45,26 +45,15 @@ namespace :template do
 
   desc "Count questions of each difficulty"
   task :counting do
-    exam_type = {silver: 0, gold: 0}
-    work_in_progress = []
-    answer = []
+    count = Count.new
     each_default do |uuid, local|
-      exam_type[local['exam_type'].to_sym] += 1 if ['silver', 'gold'].include?(local['exam_type'])
+      count.exam_type[local['exam_type']] += 1 if ['silver', 'gold'].include?(local['exam_type'])
 
-      work_in_progress <<= uuid if local['work_in_progress']
+      count.work_in_progress <<= uuid if local['work_in_progress']
 
-      local['answer'].map{|val| answer[val-1] ||= 0; answer[val-1] += 1} if answer_nil? local
+      local['answer'].map{|val| count.answer[val-1] ||= 0; count.answer[val-1] += 1} if answer_nil? local
     end
-    puts "silver: #{exam_type[:silver]}"
-    puts "gold: #{exam_type[:gold]}"
-    puts "work_in_progress:"
-    work_in_progress.each do |uuid|
-      puts "  - #{uuid}"
-    end
-    puts "answer:"
-    answer.each_with_index do |val, index|
-      puts "  - #{index+1}: #{val}" if val
-    end
+    puts count.to_hash.to_yaml
   end
 
   task :load do
@@ -88,6 +77,26 @@ namespace :template do
 
   def answer_nil? local
     local.has_key?('answer') && local['answer'].instance_of?(Array) && local['answer'].length.nonzero? && local['answer'].all?{|val| [1,2,3,4].include?(val)}
+  end
+
+  class Count
+    attr_accessor :exam_type, :work_in_progress, :answer
+
+    def initialize
+      @exam_type = {'silver' => 0, 'gold' => 0}
+      @work_in_progress = []
+      @answer = {}
+    end
+
+    def to_hash
+      @answer = @answer.sort
+      {
+        :exam_type.to_s => [{'silver' => @exam_type['silver']},
+                            {'gold' => @exam_type['gold']}],
+        :work_in_progress.to_s => @work_in_progress,
+        :answer.to_s => @answer.map {|k, v| { k + 1 => v } }
+      }
+    end
   end
 end
 
