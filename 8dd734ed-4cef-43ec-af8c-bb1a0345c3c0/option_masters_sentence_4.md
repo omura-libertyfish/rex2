@@ -1,0 +1,3 @@
+```
+B.method_missing
+```
