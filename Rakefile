@@ -38,7 +38,7 @@ namespace :template do
         fail %{work_in_progress must be Boolean in #{uuid}}
       end
 
-      # Skip check answer if work_in_progress is ture
+      # Skip check answer if work_in_progress is true
       next if local['work_in_progress']
 
       unless local.has_key?('answer') && local['answer'].instance_of?(Array) && local['answer'].length.nonzero? && local['answer'].all?{|val| [1,2,3,4].include?(val)}
