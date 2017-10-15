@@ -1,1 +1,1 @@
-`"Hello,\nRuby\nEOF"`と表示される
+`"Hello,\nRuby\n'EOF'\n"`と表示される
