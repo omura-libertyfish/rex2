@@ -1,4 +1,4 @@
-```
+```ruby
 class C
   CONST = "Hello, world"
 end

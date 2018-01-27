@@ -1,6 +1,6 @@
 次のプログラムを実行するとどうなりますか
 
-```
+```ruby
 module M
   def refer_const
     CONST
