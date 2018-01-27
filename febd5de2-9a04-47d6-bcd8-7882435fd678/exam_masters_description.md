@@ -1,7 +1,7 @@
 定数の参照はレキシカルに行われます。
 `M::C#awesome_method`のコンテキストに`CONST`がないため例外が発生します。
 
-```
+```ruby
 module M
   CONST = "Hello, world"
 end
@@ -20,7 +20,7 @@ p M::C.new.awesome_method
 `class_eval`にブロックを渡した場合は、ブロック内のネストはモジュール`M`になります。
 そのコンテキストから定数を探しますので"Hello, world"が表示されます。
 
-```
+```ruby
 class C
 end
 
@@ -42,7 +42,7 @@ p C.new.awesome_method
 `class_eval`に文字列を渡した場合のネストの状態はクラス`C`です。
 `CONST`はクラス`C`にありますので"Hello, world"が表示されます。
 
-```
+```ruby
 class C
   CONST = "Hello, world"
 end
@@ -63,7 +63,7 @@ p C.new.awesome_method
 `class_eval`にブロックを渡した場合は、ブロック内のネストはモジュール`M`になります。
 そのコンテキストから定数を探しますがないため例外が発生します。
 
-```
+```ruby
 class C
   CONST = "Hello, world"
 end

@@ -1,6 +1,6 @@
 次のプログラムを実行するとどうなりますか
 
-```
+```ruby
 class Object
   CONST = "100"
 end
