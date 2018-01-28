@@ -1,4 +1,4 @@
-```
+```ruby
 module M
   CONST = "Hello, world"
 end

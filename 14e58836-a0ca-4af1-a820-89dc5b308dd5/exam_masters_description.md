@@ -1,7 +1,7 @@
 定数の定義はメモリ上にあるテーブルに管理されます。
 モジュール`M`を別々に書いたとしてもテーブルを参照して値を取得できます。
 
-```
+```ruby
 module M
   CONST = "Hello, world"
 end
@@ -20,7 +20,7 @@ p M::say
 `instance_eval`の引数に文字列を指定するとネストの状態はモジュール`M`の特異クラスになります。
 `CONST`はモジュール`M`にのみありますので、例外が発生します。
 
-```
+```ruby
 module M
   CONST = "Hello, world"
 end
@@ -39,7 +39,7 @@ p M::say
 特異クラス定義のコンテキストでは、ネストの状態はモジュール`M`の特異クラスになります。
 `CONST`はモジュール`M`にのみありますので、例外が発生します。
 
-```
+```ruby
 module M
   CONST = "Hello, world"
 end
@@ -58,7 +58,7 @@ p M::say
 `module_eval`の引数に文字列を指定するとネストの状態はモジュール`M`になります。
 `CONST`はモジュール`M`にありますので値を取得できます。
 
-```
+```ruby
 module M
   CONST = "Hello, world"
 end

@@ -1,6 +1,6 @@
 次のプログラムを実行するとどうなりますか
 
-```
+```ruby
 module M1
   class C1
     CONST = "001"

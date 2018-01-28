@@ -1,6 +1,6 @@
 次のプログラムを実行するとどうなりますか
 
-```
+```ruby
 class C
   CONST = "Hello, world"
 end
