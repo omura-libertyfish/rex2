@@ -65,5 +65,5 @@ option_masters_sentence_1.mdが解答であれば1です。また、配列であ
 テンプレートの設定ファイルが正しく設定されているかチェックします。
 
 ```
-$ rake # or rake template:check
+$ rake # or rake exam:check
 ```
