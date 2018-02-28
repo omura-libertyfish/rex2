@@ -1,0 +1,1 @@
+`yielder.inject chr`
