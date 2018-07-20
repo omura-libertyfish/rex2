@@ -1,0 +1,3 @@
+```ruby
+load yaml
+```

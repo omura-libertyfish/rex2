@@ -1,0 +1,3 @@
+```ruby
+new yaml
+```
