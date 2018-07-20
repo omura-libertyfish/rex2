@@ -1,0 +1,3 @@
+```ruby
+values(:price, :tax)
+```
