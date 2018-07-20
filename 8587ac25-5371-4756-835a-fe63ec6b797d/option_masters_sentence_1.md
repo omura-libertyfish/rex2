@@ -1,0 +1,3 @@
+```ruby
+JSON.load json
+```
