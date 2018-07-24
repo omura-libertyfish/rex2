@@ -53,6 +53,9 @@ namespace :exam do
       puts "work_in_progress must be Boolean (#{uuid})" unless ExamYAML::valid_wip_status? yaml
       puts "exam_type must be 'siliver' or 'gold' (#{uuid})" unless ExamYAML::valid_exam_type? yaml
       puts "answer must be instance of Array and each value is in the range [1,2,3,4] (#{uuid})" unless ExamYAML::valid_answer_option? yaml
+      Dir.glob(File.join(uuid, '*')).each do |f|
+        puts "can't include '^H' in a file (#{f})" if File.read(f).index('')
+      end
     end
   end
 
