@@ -55,7 +55,7 @@ namespace :exam do
       puts "answer must be instance of Array and each value is in the range [1,2,3,4] (#{uuid})" unless ExamYAML::valid_answer_option? yaml
       Dir.glob(File.join(uuid, '*')).each do |f|
         puts "can't include '^H' in a file (#{f})" if File.read(f).index('')
-        puts "blank lines are consecutive (#{f})" if File.read(f).index("\n\n\n")
+        puts "blank lines are consecutive (#{f})" if File.read(f).gsub("\s", '').index("\n\n\n")
       end
     end
   end
