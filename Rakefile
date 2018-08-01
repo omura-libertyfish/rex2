@@ -49,20 +49,20 @@ end
 namespace :exam do
   desc "Check required items are defined"
   task :check do
-    ExamYAML::each_yaml.each do |uuid, yaml|
-      puts "work_in_progress must be Boolean (#{uuid})" unless ExamYAML::valid_wip_status? yaml
-      puts "exam_type must be 'siliver' or 'gold' (#{uuid})" unless ExamYAML::valid_exam_type? yaml
-      puts "answer must be instance of Array and each value is in the range [1,2,3,4] (#{uuid})" unless ExamYAML::valid_answer_option? yaml
-      Dir.glob(File.join(uuid, '*')).each do |f|
-        puts "can't include '^H' in a file (#{f})" if File.read(f).index('')
-        puts "blank lines are consecutive (#{f})" if File.read(f).gsub("\s", '').index("\n\n\n")
+    Exam::each_uuid.each do |uuid|
+      puts "work_in_progress must be Boolean (#{uuid})" unless Exam::valid_wip_status? uuid.yaml
+      puts "exam_type must be 'siliver' or 'gold' (#{uuid})" unless Exam::valid_exam_type? uuid.yaml
+      puts "answer must be instance of Array and each value is in the range [1,2,3,4] (#{uuid})" unless Exam::valid_answer_option? uuid.yaml
+      uuid.markdown_files do |markdown_file|
+        puts "can't include '^H' in a file (#{markdown_file})" if File.read(markdown_file).index('')
+        puts "blank lines are consecutive (#{markdown_file})" if File.read(markdown_file).gsub("\s", '').index("\n\n\n")
       end
     end
   end
 
   desc "Summarize"
   task :summarize do
-    puts ExamYAML::summarize
+    puts Exam::summarize
   end
 end
 
