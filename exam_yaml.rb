@@ -75,17 +75,17 @@ module Exam
       end if valid_answer_option? uuid.yaml
     end
 
-    <<~REPORT
-      exam_type:
-        silver: #{@exam_type['silver']}
-        gold: #{@exam_type['gold']}
-      work_in_progress:
-        #{@work_in_progress}
-      answer:
-        1: #{@answer[0]}
-        2: #{@answer[1]}
-        3: #{@answer[2]}
-        4: #{@answer[3]}
+    <<-REPORT
+exam_type:
+  silver: #{@exam_type['silver']}
+  gold: #{@exam_type['gold']}
+work_in_progress:
+  #{@work_in_progress}
+answer:
+  1: #{@answer[0]}
+  2: #{@answer[1]}
+  3: #{@answer[2]}
+  4: #{@answer[3]}
     REPORT
   end
 end
