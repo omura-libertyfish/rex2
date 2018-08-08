@@ -1,7 +1,7 @@
 require 'securerandom'
 require 'yaml'
 require 'fileutils'
-require './exam_yaml'
+require './exam_uuid'
 
 namespace :template do
   desc "Create ExamMaster and OptionMaster markdown files"

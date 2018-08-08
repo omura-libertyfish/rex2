@@ -1,3 +1,5 @@
+require 'pathname'
+
 module Exam
   class UUID
     def initialize(uuid)
