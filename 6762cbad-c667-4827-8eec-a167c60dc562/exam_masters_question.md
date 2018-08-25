@@ -4,7 +4,7 @@ class String
   XXXX
 end
 
-p "12345".hoge
+puts "12345".hoge
 ```
 ```
 # 実行結果
