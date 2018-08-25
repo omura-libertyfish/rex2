@@ -2,7 +2,7 @@
 ```ruby
 arr = XXXX
 arr.each do |i|
-  p i
+  puts i
 end
 ```
 ```
