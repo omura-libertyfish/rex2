@@ -1,1 +1,1 @@
-`'HiGoodbye'`と表示される
+`"HiGoodbye"`と表示される
