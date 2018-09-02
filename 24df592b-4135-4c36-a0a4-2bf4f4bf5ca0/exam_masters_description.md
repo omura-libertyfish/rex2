@@ -11,8 +11,8 @@ CONST = ["A", "B", "C"]
 p CONST
 
 # <実行結果>
-# 2: warning: already initialized constant CONST
-# 1: warning: previous definition of CONST was here
+# warning: already initialized constant CONST
+# warning: previous definition of CONST was here
 # ["A", "B", "C"]
 ```
 
