@@ -1,4 +1,5 @@
 以下のコードを実行するとどうなりますか
+
 ```ruby
 class C
   def initialize

@@ -12,6 +12,7 @@ p CONST
 
 # <実行結果>
 # warning: already initialized constant CONST
+# warning: previous definition of CONST was here
 # ["A", "B", "C"]
 ```
 
@@ -40,7 +41,7 @@ hoge.upcase!
 p hoge
 
 # <実行結果>
-# RuntimeError: can't modify frozen String
+# can't modify frozen String (RuntimeError)
 ```
 
 特徴2の実行結果
@@ -48,7 +49,7 @@ p hoge
 ```ruby
 hoge = "hoge".freeze
 hoge = "foo".freeze
-p hoge
+puts hoge
 
 # <実行結果>
 # foo
@@ -66,7 +67,7 @@ end
 
 liberty = Fish.new("liberty")
 liberty.name.upcase!
-p liberty
+puts liberty.name
 
 # <実行結果>
 # LIBERTY
