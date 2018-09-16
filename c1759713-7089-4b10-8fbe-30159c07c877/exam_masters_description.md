@@ -1,26 +1,26 @@
-期待する出力結果を得るために、適切な選択肢を選んでください。
+インスタンスメソッドの追加の方法についての問題です。
+
+問題では`method_b`を追加する選択肢を選ぶ必要があります。
+クラスC、モジュールMのスコープでメソッド名に`self`があるとクラスメソッドになります。
+
+選択肢のひとつとしてまず、クラスCを再オープンしてメソッドを追加する方法が選べます。
 
 ```ruby
-module M
-  def method_a
+class C
+  def method_b
     __method__
   end
 end
-
-class C
-  include M
-end
-
-p C.new.method_a
-
-# ここに当てはまるプログラムを選んでください。
-
-p C.new.method_b
 ```
 
-期待する結果
+また、クラスCにモジュールMをインクルードしていますので、モジュールMにメソッドを追加することでも期待する結果を得ることができます。
+
+次の選択肢も答えになります。
 
 ```ruby
-:method_a
-:method_b
+module M
+  def method_b
+    __method__
+  end
+end
 ```
