@@ -6,7 +6,6 @@
 
 また、`Enumerator`オブジェクトは`new`メソッドで作成することが出来ます。この問題ですと少し冗長ではありますが、全体的には次のとおりです。
 
-
 ```ruby
 class Array
   def succ_each(step = 1)
