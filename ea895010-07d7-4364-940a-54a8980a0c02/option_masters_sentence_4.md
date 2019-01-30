@@ -1,0 +1,3 @@
+```ruby
+["Apple", "-", "Banana", "-", "Lemon"]
+```
