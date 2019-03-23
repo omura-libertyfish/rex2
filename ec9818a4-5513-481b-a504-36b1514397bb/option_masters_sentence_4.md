@@ -1,0 +1,5 @@
+```ruby
+class MyModule
+
+end
+```
