@@ -30,7 +30,6 @@ UUIDで名前付けしたディレクトリに試験問題に必要なマーク�
 ```
 ---
 exam_type: silver
-work_in_progress: false
 answer:
   - 1
   - 4
@@ -39,10 +38,6 @@ answer:
 - exam_type  
 問題種別を表します。siliverもしくはgoldを指定してください。  
 silver、gold以外の文字列が指定された場合は例外が発生します。
-
-- work_in_progress  
-試験問題が作成中かを表します。trueもしくはfalseを指定してください。  
-true、false以外の文字列が指定された場合は例外が発生します。
 
 - answer
 解答の選択肢を表します。選択肢のマークダウンファイルのインデックスを指定してください。  

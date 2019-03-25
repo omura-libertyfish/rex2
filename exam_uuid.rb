@@ -47,14 +47,6 @@ module Exam
     end
   end
 
-  def self.valid_wip_status? yaml
-    begin
-      [true, false].include? yaml['work_in_progress']
-    rescue
-      false
-    end
-  end
-
   def self.valid_answer_option? yaml
     begin
       yaml['answer'].length.nonzero? && yaml['answer'].all?{|index| [1,2,3,4].include?(index)}
@@ -65,12 +57,10 @@ module Exam
 
   def self.summarize
     @exam_type = {'silver' => 0, 'gold' => 0}
-    @work_in_progress = []
     @answer = {}
 
     each_uuid.each do |uuid|
       @exam_type[uuid.yaml['exam_type']] += 1 if valid_exam_type? uuid.yaml
-      @work_in_progress <<= uuid if uuid.yaml['work_in_progress']
       uuid.yaml['answer'].map do |val|
         @answer[val - 1] ||= 0
         @answer[val - 1] += 1
@@ -81,8 +71,6 @@ module Exam
 exam_type:
   silver: #{@exam_type['silver']}
   gold: #{@exam_type['gold']}
-work_in_progress:
-  #{@work_in_progress}
 answer:
   1: #{@answer[0]}
   2: #{@answer[1]}

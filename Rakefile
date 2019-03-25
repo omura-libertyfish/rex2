@@ -50,7 +50,6 @@ namespace :exam do
   desc "Check required items are defined"
   task :check do
     Exam::each_uuid.each do |uuid|
-      puts "work_in_progress must be Boolean (#{uuid})" unless Exam::valid_wip_status? uuid.yaml
       puts "exam_type must be 'siliver' or 'gold' (#{uuid})" unless Exam::valid_exam_type? uuid.yaml
       puts "answer must be instance of Array and each value is in the range [1,2,3,4] (#{uuid})" unless Exam::valid_answer_option? uuid.yaml
       uuid.markdown_files do |markdown_file|
