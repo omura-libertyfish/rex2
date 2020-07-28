@@ -1,0 +1,1 @@
+`(a | b).inject(:-).abs + (a & b).inject(:+).abs`

@@ -1,0 +1,1 @@
+`((a || b).map(&:succ).inject(:*) * (a && b).inject(:*).abs2 + 29)`
