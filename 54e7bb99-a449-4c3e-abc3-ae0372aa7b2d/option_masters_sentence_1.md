@@ -1,0 +1,1 @@
+`a.inject(:+) + b.inject(:+)`

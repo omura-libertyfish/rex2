@@ -1,0 +1,1 @@
+`(a | b).inject(:*) + b.inject(0) { |x,  y| x + y ** 3 }`
