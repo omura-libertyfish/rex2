@@ -24,17 +24,17 @@ Array.new.object_id  # => 70135176317780
 - `NilClass`
 - `Symbol`
 - `Fixnum`
+- `Float`
 
 **例2**
 
 ```ruby
-# 実行環境によってidは異なる場合があります
-true.object_id                        # => 20
-true.object_id.equal?(true.object_id) # => true
-:a.object_id                          # => 760028
-:a.object_id.equal?(:a.object_id)     # => true
-1.object_id                           # => 3
-1.object_id.equal?(1.object_id)       # => true
+true.equal?(true)   # => true
+false.equal?(false) # => true
+nil.equal?(nil)     # => true
+:a.equal?(:a)       # => true
+1.equal?(1)         # => true
+3.14.equal? 3.14    # => true
 ```
 
 `Enumerable#inject`メソッドは、レシーバの要素に対して引数で指定した処理を行います。  
