@@ -1,0 +1,1 @@
+`RubyExamination`と表示される
