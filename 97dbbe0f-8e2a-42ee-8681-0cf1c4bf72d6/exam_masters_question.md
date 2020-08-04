@@ -3,5 +3,5 @@
 ```ruby
 hash = Hash.new {|h, k| raise(KeyError, "Key #{k} does not exist in hash #{h}") }
 
-p __X__
+__X__
 ```
