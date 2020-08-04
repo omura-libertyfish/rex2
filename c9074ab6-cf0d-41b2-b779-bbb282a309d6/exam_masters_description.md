@@ -30,7 +30,7 @@ end
 ```ruby
 begin
   raise
-rescue RuntimeError => e
+rescue StandardError => e
   puts e.class   # => RuntimeError
   puts e.message # => 空文字
 end

@@ -3,7 +3,7 @@
 ```ruby
 exceptions = {
   NameError => "変数または定数が存在しません",
-  NoMethodError => "メソッドが定義されていません",
+  ArgumentError => "引数が不正です",
   RuntimeError => "特定の例外が発生しました"
 }
 
