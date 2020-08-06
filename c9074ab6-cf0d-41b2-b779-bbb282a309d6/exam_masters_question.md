@@ -10,8 +10,7 @@ exceptions = {
 begin
   raise
 rescue => e
-  b = e.class.new(exceptions[e.class])
-  puts b.message
+  puts exceptions[e.class]
 else
   puts "例外は発生しませんでした"
 end
