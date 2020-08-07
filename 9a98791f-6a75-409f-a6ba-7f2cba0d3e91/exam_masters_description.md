@@ -16,6 +16,18 @@ Array.new.object_id  # => 70135176317780
 { a: 1 }.object_id   # => 70210531493560
 ```
 
+`eql?`は同値性、`equal?`は同一性を検証するので実行結果は例2のように`String`クラスの同じリテラルでもそれぞれ別のオブジェクトとなるので`equal?`メソッドの場合は`false`を返します。
+
+**例2**
+
+```ruby
+str1 = "a"
+str2 = "a"
+
+str1.eql?(str2)   # => true
+str1.equal?(str2) # => false
+```
+
 例外として下記クラスのインスタンスは、同じリテラルであれば同一のオブジェクトとなるためオブジェクトIDは同じです。
 
 同一リテラルは同一オブジェクトとみなされるクラス
@@ -26,14 +38,18 @@ Array.new.object_id  # => 70135176317780
 - `Fixnum`
 - `Float`
 
-**例2**
-
 ```ruby
+true.eql?(true)     # => true
 true.equal?(true)   # => true
+false.eql?(false)   # => true
 false.equal?(false) # => true
+nil.eql?(nil)       # => true
 nil.equal?(nil)     # => true
+:a.eql?(:a)         # => true
 :a.equal?(:a)       # => true
+1.eql?(1)           # => true
 1.equal?(1)         # => true
+3.14.eql? 3.14      # => true
 3.14.equal? 3.14    # => true
 ```
 
