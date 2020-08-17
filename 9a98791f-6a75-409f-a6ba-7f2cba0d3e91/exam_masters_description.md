@@ -39,17 +39,11 @@ str1.equal?(str2) # => false
 - `Float`
 
 ```ruby
-true.eql?(true)     # => true
 true.equal?(true)   # => true
-false.eql?(false)   # => true
 false.equal?(false) # => true
-nil.eql?(nil)       # => true
 nil.equal?(nil)     # => true
-:a.eql?(:a)         # => true
 :a.equal?(:a)       # => true
-1.eql?(1)           # => true
 1.equal?(1)         # => true
-3.14.eql? 3.14      # => true
 3.14.equal? 3.14    # => true
 ```
 
