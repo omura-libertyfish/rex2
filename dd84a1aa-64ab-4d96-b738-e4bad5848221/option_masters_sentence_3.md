@@ -1,0 +1,1 @@
+`SyntaxError`が発生する
