@@ -9,7 +9,7 @@ class Foo
 end
 
 def to_upcase
-    self.upcase
+  self.upcase
 end
 
 "a".to_upcase # => "A"
