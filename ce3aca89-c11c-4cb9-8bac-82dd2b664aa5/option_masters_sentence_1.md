@@ -1,1 +1,3 @@
-`(a - b).map(&:next)`
+```ruby
+(a - b).map(&:next)
+```
