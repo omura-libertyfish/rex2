@@ -17,7 +17,7 @@ hash.default_proc = nil　# デフォルト値をnilに更新しているので�
 **エラーが発生する場合**
 
 `Hash#default_proc`メソッドは`Hash`オブジェクトに設定されたブロック形式のデフォルト値を返します。  
-`Hash`オブジェクトがデフォルト値を返す`Proc`を持たない場合は`nil`を返します。
+`Hash#default_proc`メソッドがデフォルトの`Proc`を持たない場合は`nil`を返します。
 
 ```ruby
 proc = hash.default_proc # ここでデフォルト値に設定されたブロックの内容を参照しそれを変数procに代入しています
