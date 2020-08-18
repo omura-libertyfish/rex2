@@ -1,1 +1,3 @@
-`File.close`
+```ruby
+File.close
+```

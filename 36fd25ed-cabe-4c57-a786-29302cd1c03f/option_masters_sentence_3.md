@@ -1,1 +1,3 @@
-`File.home`
+```ruby
+File.home
+```

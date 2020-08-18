@@ -1,1 +1,3 @@
-`File.dirname`
+```ruby
+File.dirname
+```
