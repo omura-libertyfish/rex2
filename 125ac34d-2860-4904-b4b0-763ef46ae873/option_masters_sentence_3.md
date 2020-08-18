@@ -1,1 +1,3 @@
-`Dir.chown`
+```ruby
+Dir.chown
+```

@@ -1,1 +1,3 @@
-`Dir.directory?`
+```ruby
+Dir.directory?
+```

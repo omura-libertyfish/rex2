@@ -1,1 +1,3 @@
-`Dir.pwd`
+```ruby
+Dir.pwd
+```
