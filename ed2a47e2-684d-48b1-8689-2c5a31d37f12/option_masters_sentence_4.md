@@ -1,1 +1,3 @@
-`Dir.rmdir`
+```ruby
+Dir.rmdir
+```

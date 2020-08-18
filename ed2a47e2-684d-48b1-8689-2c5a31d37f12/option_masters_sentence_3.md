@@ -1,1 +1,3 @@
-`Dir.chmod`
+```ruby
+Dir.chmod
+```

@@ -1,1 +1,3 @@
-`Dir.delete`
+```ruby
+Dir.delete
+```
