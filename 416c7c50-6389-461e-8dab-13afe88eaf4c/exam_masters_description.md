@@ -13,5 +13,5 @@ Examination
 ```
 
 ```ruby
-IO.readlines("readme.md")                    # => ["Ruby\n", "Examination\n"]
+IO.readlines("readme.md") # => ["Ruby\n", "Examination\n"]
 ```

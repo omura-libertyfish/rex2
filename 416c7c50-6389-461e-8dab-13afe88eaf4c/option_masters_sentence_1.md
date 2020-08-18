@@ -1,1 +1,3 @@
-`IO.size`
+```ruby
+IO.size
+```

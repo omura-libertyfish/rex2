@@ -1,1 +1,3 @@
-`IO.delete`
+```ruby
+IO.delete
+```

@@ -1,1 +1,3 @@
-`IO.write`
+```ruby
+IO.write
+```

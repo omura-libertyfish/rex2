@@ -1,1 +1,3 @@
-`IO.readlines`
+```ruby
+IO.readlines
+```
