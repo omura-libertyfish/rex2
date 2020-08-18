@@ -1,1 +1,3 @@
-`File.chmod`
+```ruby
+File.chmod
+```

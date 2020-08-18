@@ -1,1 +1,3 @@
-`File.delete`
+```ruby
+File.delete
+```
