@@ -1,0 +1,3 @@
+```ruby
+IO.delete
+```
