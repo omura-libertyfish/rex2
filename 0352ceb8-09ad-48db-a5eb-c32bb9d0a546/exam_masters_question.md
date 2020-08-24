@@ -4,7 +4,9 @@
 class Foo
   @@var = 0
 
-  def var ; @@var ; end
+  def var
+    @@var
+  end
 
   def var=(value) 
     @@var = value
