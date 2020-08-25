@@ -1,0 +1,1 @@
+`NoMthodErorr`が発生する
