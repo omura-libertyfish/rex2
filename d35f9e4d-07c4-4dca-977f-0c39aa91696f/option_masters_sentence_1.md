@@ -1,0 +1,1 @@
+`"REx\nSilver\nREx\n"`と表示される
