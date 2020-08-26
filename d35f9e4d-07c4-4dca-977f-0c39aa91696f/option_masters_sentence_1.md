@@ -1,1 +1,1 @@
-`"REx\nSilver\nREx"`と表示される
+`"REx\nSilver\nREx\n"`と表示される
