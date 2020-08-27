@@ -39,23 +39,29 @@ module M
   Const = "m"
 end
 
-class C
+class C1
   include M
 
   def c1
     ::Const
   end
+end
 
+class C2
   def c2
     M::Const
   end
 end
 
-C.new.c1 # => "top"
-C.new.c2 # => "m"
-Const    # => "top"
-M::Const # => "m"
-C::Const # => "m"
+class C3 < C1
+end
+
+C1.new.c1 # => "top"
+C2.new.c2 # => "m"
+Const     # => "top"
+M::Const  # => "m"
+C1::Const # => "m"
+C3::Const # => "m"
 ```
 
 問題の`::PI`は`Area`クラス内部からトップレベルの`PI`を参照しており、トップレベルに定数`PI`は存在しないので`Area#circle`を実行し`::PI`を参照しようとすると見つけられないため`NameError`が発生します。
