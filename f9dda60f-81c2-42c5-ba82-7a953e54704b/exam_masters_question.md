@@ -2,14 +2,12 @@
 
 ```ruby
 class Foo
+  attr_reader :var
+
   @var = "1"
 
   def initialize
     @var = "2"
-  end
-
-  def var
-    @var
   end
 end
 
