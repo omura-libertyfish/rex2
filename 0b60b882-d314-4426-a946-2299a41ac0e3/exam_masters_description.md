@@ -13,8 +13,8 @@ class C
   include M
 end
 
-C.new.m # => "m"
-C::M    # => "m"
+p C.new.m # => "m"
+p C::M    # => "m"
 ```
 
 クラスを継承する場合スーパークラスはクラスである必要があるためモジュールをスーパークラスとして定義することはできません。
@@ -56,12 +56,12 @@ end
 class C3 < C1
 end
 
-C1.new.c1 # => "top"
-C2.new.c2 # => "m"
-Const     # => "top"
-M::Const  # => "m"
-C1::Const # => "m"
-C3::Const # => "m"
+p C1.new.c1 # => "top"
+p C2.new.c2 # => "m"
+p Const     # => "top"
+p M::Const  # => "m"
+p C1::Const # => "m"
+p C3::Const # => "m"
 ```
 
 問題の`::PI`は`Area`クラス内部からトップレベルの`PI`を参照しており、トップレベルに定数`PI`は存在しないので`Area#circle`を実行し`::PI`を参照しようとすると見つけられないため`NameError`が発生します。
