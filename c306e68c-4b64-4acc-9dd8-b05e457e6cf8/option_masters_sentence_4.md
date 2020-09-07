@@ -1,0 +1,3 @@
+```ruby
+Thread.fork
+```
