@@ -21,8 +21,8 @@ class Foo
   end
 end
 
-Foo.var     # => 1
-Foo.new.var # => 2
+p Foo.var     # => 1
+p Foo.new.var # => 2
 ```
 
 クラス外に定義することも可能です。
@@ -36,7 +36,7 @@ def Foo.var
   @var
 end
 
-Foo.var     # => 1
+p Foo.var     # => 1
 ```
 
 クラスインスタンス変数は継承先には引き継がれません。
