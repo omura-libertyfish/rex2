@@ -71,6 +71,8 @@ module Exam
   def self.summarize
     @exam_type = {'silver' => 0, 'gold' => 0}
     @answer = {}
+    @category_silver = [0, 0, 0]
+    @category_gold = [0, 0, 0, 0, 0, 0]
 
     each_uuid.each do |uuid|
       @exam_type[uuid.yaml['exam_type']] += 1 if valid_exam_type? uuid.yaml
@@ -78,6 +80,36 @@ module Exam
         @answer[val - 1] ||= 0
         @answer[val - 1] += 1
       end if valid_answer_option? uuid.yaml
+
+      # 配列のハッシュに変更
+      if uuid.yaml['exam_type'] == 'silver' 
+        case uuid.yaml['category']
+          when 'grammer'
+          @category_silver[0] += 1
+          when 'object_orientation'
+          @category_silver[1] += 1
+          when 'built_in_library'
+          @category_silver[2] += 1
+        end
+      elsif uuid.yaml['exam_type'] == 'gold'
+        case uuid.yaml['category']
+          when 'execution_environment'
+            @category_gold[0] += 1
+          when 'grammer'
+            @category_gold[1] += 1
+          when 'object_orientation'
+            @category_gold[2] += 1
+          when 'built_in_library'
+            @category_gold[3] += 1
+          when 'standard_attached_library'
+            @category_gold[4] += 1
+          when 'difficult_question'
+            @category_gold[5] += 1
+        end
+      else
+        puts "error"
+      end
+
     end
 
     <<-REPORT
@@ -89,6 +121,18 @@ answer:
   2: #{@answer[1]}
   3: #{@answer[2]}
   4: #{@answer[3]}
+category:
+  silver:
+    grammer: #{@category_silver[0]}
+    object_orientation: #{@category_silver[1]}
+    built_in_library: #{@category_silver[2]}
+  gold:
+    execution_environment: #{@category_gold[0]}
+    grammer: #{@category_gold[1]}
+    object_orientation: #{@category_gold[2]}
+    built_in_library: #{@category_gold[3]}
+    standard_attached_library: #{@category_gold[4]}
+    difficult_question: #{@category_gold[5]}
     REPORT
   end
 end
