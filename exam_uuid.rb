@@ -71,45 +71,17 @@ module Exam
   def self.summarize
     @exam_type = {'silver' => 0, 'gold' => 0}
     @answer = {}
-    @category_silver = [0, 0, 0]
-    @category_gold = [0, 0, 0, 0, 0, 0]
-
+    @categories = init_summarize_categories
+    
     each_uuid.each do |uuid|
       @exam_type[uuid.yaml['exam_type']] += 1 if valid_exam_type? uuid.yaml
       uuid.yaml['answer'].map do |val|
         @answer[val - 1] ||= 0
         @answer[val - 1] += 1
       end if valid_answer_option? uuid.yaml
-
-      # 配列のハッシュに変更
-      if uuid.yaml['exam_type'] == 'silver' 
-        case uuid.yaml['category']
-          when 'grammer'
-          @category_silver[0] += 1
-          when 'object_orientation'
-          @category_silver[1] += 1
-          when 'built_in_library'
-          @category_silver[2] += 1
-        end
-      elsif uuid.yaml['exam_type'] == 'gold'
-        case uuid.yaml['category']
-          when 'execution_environment'
-            @category_gold[0] += 1
-          when 'grammer'
-            @category_gold[1] += 1
-          when 'object_orientation'
-            @category_gold[2] += 1
-          when 'built_in_library'
-            @category_gold[3] += 1
-          when 'standard_attached_library'
-            @category_gold[4] += 1
-          when 'difficult_question'
-            @category_gold[5] += 1
-        end
-      else
-        puts "error"
-      end
-
+      if self.valid_exam_category? uuid.yaml
+        @categories[uuid.yaml['exam_type']][uuid.yaml['category']] += 1
+      end  
     end
 
     <<-REPORT
@@ -123,16 +95,34 @@ answer:
   4: #{@answer[3]}
 category:
   silver:
-    grammer: #{@category_silver[0]}
-    object_orientation: #{@category_silver[1]}
-    built_in_library: #{@category_silver[2]}
+    grammer: #{@categories['silver']['grammer']}
+    object_orientation: #{@categories['silver']['object_orientation']}
+    built_in_library: #{@categories['silver']['built_in_library']}
   gold:
-    execution_environment: #{@category_gold[0]}
-    grammer: #{@category_gold[1]}
-    object_orientation: #{@category_gold[2]}
-    built_in_library: #{@category_gold[3]}
-    standard_attached_library: #{@category_gold[4]}
-    difficult_question: #{@category_gold[5]}
+    execution_environment: #{@categories['gold']['execution_environment']}
+    grammer: #{@categories['gold']['grammer']}
+    object_orientation: #{@categories['gold']['object_orientation']}
+    built_in_library: #{@categories['gold']['built_in_library']}
+    standard_attached_library: #{@categories['gold']['standard_attached_library']}
+    difficult_question:#{@categories['gold']['difficult_question']}
     REPORT
+  end
+
+  def self.init_summarize_categories
+    {
+      'silver' => {
+        'grammer' => 0,
+        'object_orientation' => 0,
+        'built_in_library' => 0
+      },
+      'gold' => {
+        'execution_environment' => 0,
+        'grammer' => 0,
+        'object_orientation' => 0,
+        'built_in_library' => 0,
+        'standard_attached_library' => 0,
+        'difficult_question' => 0
+      }
+    }
   end
 end
