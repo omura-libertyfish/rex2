@@ -47,6 +47,19 @@ module Exam
     end
   end
 
+  #カテゴリがないとエラー分を表示させるメソッド
+  def self.valid_exam_category?(yaml)
+    begin
+      if yaml['exam_type'].include?('silver')
+        %w[grammar object_orientation built_in_library].include? yaml['category']
+      elsif yaml['exam_type'].include?('gold')
+        %w[execution_environment grammar object_orientation built_in_library standard_attached_library difficult_question].include? yaml['category']
+      end
+    rescue
+      false
+    end
+  end
+
   def self.valid_answer_option? yaml
     begin
       yaml['answer'].length.nonzero? && yaml['answer'].all?{|index| [1,2,3,4].include?(index)}
