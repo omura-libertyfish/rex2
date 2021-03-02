@@ -72,7 +72,7 @@ module Exam
     @exam_type = {'silver' => 0, 'gold' => 0}
     @answer = {}
     @categories = init_summarize_categories
-    
+
     each_uuid.each do |uuid|
       @exam_type[uuid.yaml['exam_type']] += 1 if valid_exam_type? uuid.yaml
       uuid.yaml['answer'].map do |val|
@@ -95,12 +95,12 @@ answer:
   4: #{@answer[3]}
 category:
   silver:
-    grammer: #{@categories['silver']['grammer']}
+    grammar: #{@categories['silver']['grammar']}
     object_orientation: #{@categories['silver']['object_orientation']}
     built_in_library: #{@categories['silver']['built_in_library']}
   gold:
     execution_environment: #{@categories['gold']['execution_environment']}
-    grammer: #{@categories['gold']['grammer']}
+    grammar: #{@categories['gold']['grammar']}
     object_orientation: #{@categories['gold']['object_orientation']}
     built_in_library: #{@categories['gold']['built_in_library']}
     standard_attached_library: #{@categories['gold']['standard_attached_library']}
@@ -111,13 +111,13 @@ category:
   def self.init_summarize_categories
     {
       'silver' => {
-        'grammer' => 0,
+        'grammar' => 0,
         'object_orientation' => 0,
         'built_in_library' => 0
       },
       'gold' => {
         'execution_environment' => 0,
-        'grammer' => 0,
+        'grammar' => 0,
         'object_orientation' => 0,
         'built_in_library' => 0,
         'standard_attached_library' => 0,
