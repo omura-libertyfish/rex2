@@ -47,6 +47,19 @@ module Exam
     end
   end
 
+  #カテゴリがないとエラー分を表示させるメソッド
+  def self.valid_exam_category?(yaml)
+    begin
+      if yaml['exam_type'].include?('silver')
+        %w[grammar object_orientation built_in_library].include? yaml['category']
+      elsif yaml['exam_type'].include?('gold')
+        %w[execution_environment grammar object_orientation built_in_library standard_attached_library difficult_question].include? yaml['category']
+      end
+    rescue
+      false
+    end
+  end
+
   def self.valid_answer_option? yaml
     begin
       yaml['answer'].length.nonzero? && yaml['answer'].all?{|index| [1,2,3,4].include?(index)}
@@ -58,6 +71,7 @@ module Exam
   def self.summarize
     @exam_type = {'silver' => 0, 'gold' => 0}
     @answer = {}
+    @categories = init_summarize_categories
 
     each_uuid.each do |uuid|
       @exam_type[uuid.yaml['exam_type']] += 1 if valid_exam_type? uuid.yaml
@@ -65,6 +79,9 @@ module Exam
         @answer[val - 1] ||= 0
         @answer[val - 1] += 1
       end if valid_answer_option? uuid.yaml
+      if self.valid_exam_category? uuid.yaml
+        @categories[uuid.yaml['exam_type']][uuid.yaml['category']] += 1
+      end  
     end
 
     <<-REPORT
@@ -76,6 +93,36 @@ answer:
   2: #{@answer[1]}
   3: #{@answer[2]}
   4: #{@answer[3]}
+category:
+  silver:
+    grammar: #{@categories['silver']['grammar']}
+    object_orientation: #{@categories['silver']['object_orientation']}
+    built_in_library: #{@categories['silver']['built_in_library']}
+  gold:
+    execution_environment: #{@categories['gold']['execution_environment']}
+    grammar: #{@categories['gold']['grammar']}
+    object_orientation: #{@categories['gold']['object_orientation']}
+    built_in_library: #{@categories['gold']['built_in_library']}
+    standard_attached_library: #{@categories['gold']['standard_attached_library']}
+    difficult_question:#{@categories['gold']['difficult_question']}
     REPORT
+  end
+
+  def self.init_summarize_categories
+    {
+      'silver' => {
+        'grammar' => 0,
+        'object_orientation' => 0,
+        'built_in_library' => 0
+      },
+      'gold' => {
+        'execution_environment' => 0,
+        'grammar' => 0,
+        'object_orientation' => 0,
+        'built_in_library' => 0,
+        'standard_attached_library' => 0,
+        'difficult_question' => 0
+      }
+    }
   end
 end
