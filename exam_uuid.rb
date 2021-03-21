@@ -24,6 +24,9 @@ module Exam
     end
   end
 
+  SILVER_CATEGORIES = %w[grammar object_orientation built_in_library]
+  GOLD_CATEGORIES = %w[execution_environment grammar object_orientation built_in_library standard_attached_library difficult_question]
+
   def self.uuids
     uuid_regexp = /\A[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}\z/
     Dir.glob('*').select{|path| path.match uuid_regexp}.map{|path| Pathname.new(path)}
@@ -51,9 +54,9 @@ module Exam
   def self.valid_exam_category?(yaml)
     begin
       if yaml['exam_type'].include?('silver')
-        %w[grammar object_orientation built_in_library].include? yaml['category']
+        SILVER_CATEGORIES.include? yaml['category']
       elsif yaml['exam_type'].include?('gold')
-        %w[execution_environment grammar object_orientation built_in_library standard_attached_library difficult_question].include? yaml['category']
+        GOLD_CATEGORIES.include? yaml['category']
       end
     rescue
       false
@@ -81,7 +84,7 @@ module Exam
       end if valid_answer_option? uuid.yaml
       if self.valid_exam_category? uuid.yaml
         @categories[uuid.yaml['exam_type']][uuid.yaml['category']] += 1
-      end  
+      end
     end
 
     <<-REPORT
@@ -110,19 +113,8 @@ category:
 
   def self.init_summarize_categories
     {
-      'silver' => {
-        'grammar' => 0,
-        'object_orientation' => 0,
-        'built_in_library' => 0
-      },
-      'gold' => {
-        'execution_environment' => 0,
-        'grammar' => 0,
-        'object_orientation' => 0,
-        'built_in_library' => 0,
-        'standard_attached_library' => 0,
-        'difficult_question' => 0
-      }
+      'silver' => SILVER_CATEGORIES.product([0]).to_h,
+      'gold' => GOLD_CATEGORIES.product([0]).to_h
     }
   end
 end
