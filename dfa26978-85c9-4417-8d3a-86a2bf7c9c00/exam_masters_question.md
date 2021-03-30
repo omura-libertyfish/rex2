@@ -12,7 +12,7 @@ m.instance_eval(<<-EVAL)
 EVAL
 
 block = m.instance_variable_get :@block
-_eval =  m.instance_variable_get :@eval
+_eval = m.instance_variable_get :@eval
 
 puts block.size
 puts _eval.size
