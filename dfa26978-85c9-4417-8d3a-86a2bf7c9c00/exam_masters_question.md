@@ -1,4 +1,4 @@
-次のプログラムと同じ結果になるプログラムを選んでください。
+次のプログラムを実行した出力結果が同じものを選んでください。
 
 ```ruby
 m = Module.new
@@ -12,7 +12,7 @@ m.instance_eval(<<-EVAL)
 EVAL
 
 block = m.instance_variable_get :@block
-_eval =  m.instance_variable_get :@eval
+_eval = m.instance_variable_get :@eval
 
 puts block.size
 puts _eval.size

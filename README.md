@@ -33,6 +33,7 @@ exam_type: silver
 answer:
   - 1
   - 4
+category: grammar
 ```
 
 - exam_type  
@@ -42,6 +43,11 @@ silver、gold以外の文字列が指定された場合は例外が発生しま�
 - answer
 解答の選択肢を表します。選択肢のマークダウンファイルのインデックスを指定してください。  
 option_masters_sentence_1.mdが解答であれば1です。また、配列であることを期待します。
+
+- category
+問題のカテゴリーを表します。  
+問題種別がsilverの場合は、`grammar`、`object_orientation`または`built_in_library`を指定してください。  
+問題種別がgoldの場合は、`execution_environment`、`grammar`、`object_orientation`、`built_in_library`、`standard_attached_library`または`difficult_question`を指定してください。
 
 #### exam_masters_question.md
 
