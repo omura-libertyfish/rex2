@@ -1,0 +1,3 @@
+```ruby
+puts foo.inspect
+```
