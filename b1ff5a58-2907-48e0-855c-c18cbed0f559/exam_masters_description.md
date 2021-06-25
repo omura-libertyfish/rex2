@@ -1,4 +1,4 @@
-以下のコードはirbやpryではSyntaxErrorとなりますが、通常はSyntaxErrorとはなりません。
+以下のコードはirbやpryではSyntaxErrorとなりますが、ファイルにコードを記述しスクリプトを実行する場合はSyntaxErrorにはなりません。
 
 ```ruby
 1: (1..10).each
