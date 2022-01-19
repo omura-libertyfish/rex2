@@ -3,7 +3,7 @@
 | メソッド | 説明
 |-|-|
 | `String#concat(other)` | `self`に`other`を繋げます |
-| `String#reverse` | 文字列の並びを反転します このメソッドは破壊的メソッドです |
+| `String#reverse!` | 文字列の並びを反転します このメソッドは破壊的メソッドです |
 | `String#index(pattern, pos)` | 文字列の`pos`番目から`pattern`を検索し、最初に見つかった位置を返します |
 
 問題のコードを1行ずつ実行すると以下のようになります。
